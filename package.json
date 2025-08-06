@@ -1,0 +1,23 @@
+{
+  "name": "crud-node",
+  "version": "0.0.1",
+  "description": "Crud example",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "dev": "nodemon ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "leobusta",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
