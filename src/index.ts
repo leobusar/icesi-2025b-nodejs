@@ -1,5 +1,6 @@
 import express, {Express, Request, Response } from  'express';
 
+import {db} from './config/connectionDB';
 import {userRouter} from './routes/index';
 
 const app: Express = express();
@@ -18,6 +19,8 @@ app.get("/", (req: Request, res: Response) => {
     res.send('Hola Mundo');
 }); 
 
-app.listen(port, ()=> {
-    console.log(`Server is running on port ${port}`); 
-}); 
+db.then ( () => 
+    app.listen(port, ()=> {
+        console.log(`Server is running on port ${port}`); 
+    }) 
+)
