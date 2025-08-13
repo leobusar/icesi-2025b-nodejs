@@ -8,3 +8,8 @@ export interface UserInputUpdate {
     name: string, 
     email: string
 }
+
+export interface UserLogin {
+    email: string, 
+    password: string
+}
