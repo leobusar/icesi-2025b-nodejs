@@ -69,20 +69,29 @@ class UserService {
         }
 
         return {
-            id: userExists.id,
-            roles: ["admin"],
-            token: await this.generateToken(userExists.id)
+            user: {
+                id: userExists.id,
+                email: userExists.email,
+                name: userExists.name,
+                roles: ["admin"],
+            },
+            token: await this.generateToken(userExists)
         };
 
     }
 
-    public async generateToken(id: string): Promise<string> {
-        const user = await this.getById(id);
+    public async generateToken(user: UserDocument): Promise<string> {
         if (user == null)
             throw new Error();
         return jwt.sign(
-            user, 
-            "secret_key", 
+            {
+                user: {
+                    id: user.id,
+                    email: user.email,
+                    name: user.name
+                }
+            },
+            process.env.SECRET || "secret_key", 
             {expiresIn: "10m"}
         ); 
     }

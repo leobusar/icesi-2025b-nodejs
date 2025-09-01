@@ -1,9 +1,12 @@
 import express, {Request, Response} from "express";
 import { userController } from "../controllers";
+import { auth } from "../middlewares/auth.middleware";
 
 export const router = express.Router();
 
-router.get("/", userController.getAll); 
+router.get("/", auth, userController.getAll); 
+
+router.get("/profile", auth, userController.getOne);
 
 router.get("/:id", userController.getOne); 
 
