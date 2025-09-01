@@ -1,6 +1,7 @@
 import express, {Request, Response} from "express";
 import { userController } from "../controllers";
-import { auth } from "../middlewares/auth.middleware";
+import { validateSchema, auth } from "../middlewares";
+import { userSchema } from "../schemas";
 
 export const router = express.Router();
 
@@ -14,6 +15,6 @@ router.put("/:id", userController.update);
 
 router.delete("/:id", userController.delete); 
 
-router.post("/", userController.create);
+router.post("/", validateSchema(userSchema), userController.create);
 
 router.post("/login", userController.login);
