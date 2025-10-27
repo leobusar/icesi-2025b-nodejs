@@ -1,5 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import jwt, { TokenExpiredError } from "jsonwebtoken";
+import jwt  from "jsonwebtoken";
+
+const {TokenExpiredError} = jwt;
 
 export const auth = async  (req: Request, res: Response, next:NextFunction) =>  {
     let token: string | undefined = req.header("Authorization");

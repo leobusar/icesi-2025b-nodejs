@@ -3,16 +3,20 @@
   "version": "0.0.1",
   "description": "Crud example",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "dev": "nodemon ./src/index.ts",
+    "dev": "tsx watch ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "leobusta",
   "license": "ISC",
   "dependencies": {
+    "@apollo/server": "^5.0.0",
+    "@as-integrations/express5": "^1.1.2",
     "bcrypt": "^6.0.0",
     "express": "^5.1.0",
+    "graphql": "^16.11.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.18.0",
     "mongoose": "^8.17.0",
@@ -25,6 +29,7 @@
     "@types/node": "^24.2.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.2"
   }
 }
